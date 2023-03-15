@@ -1,0 +1,22 @@
+{
+  "name": "@koalan/prettier-config",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.json",
+  "keywords": [
+    "prettier config"
+  ],
+  "author": "@koalan",
+  "files": [
+    "index.json"
+  ],
+  "scripts": {
+    "release": "bumpp package.json -commit --push --tag && pnpm -r publish --access public"
+  },
+  "peerDependencies": {
+    "pretter": ">=2.8.0"
+  },
+  "devDependencies": {
+    "bumpp": "^9.0.0"
+  }
+}
