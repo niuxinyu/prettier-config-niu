@@ -1,1 +1,1 @@
-prettier config
+prettier config for myself

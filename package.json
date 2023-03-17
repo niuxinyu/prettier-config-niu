@@ -14,7 +14,7 @@
     "release": "bumpp package.json -commit --push --tag && pnpm -r publish --access public"
   },
   "peerDependencies": {
-    "pretter": ">=2.8.0"
+    "prettier": ">=2.8.0"
   },
   "devDependencies": {
     "bumpp": "^9.0.0"
