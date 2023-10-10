@@ -6,15 +6,7 @@ const likeBuiltInModules = [
   '^react$',
   '^react-dom$',
   '^react-router-dom$',
-]
-// v2
-const v2UiList = ['^element-ui(?!.*.(css|less|scss|sass|styl)$).*$']
-// v3
-const uiList = [
-  '^ant-design-vue(?!.*.(css|less|scss|sass|styl)$).*$',
-  '^element-plus(?!.*.(css|less|scss|sass|styl)$).*$',
-  '^naive-ui(?!.*.(css|less|scss|sass|styl)$).*$',
-  '^view-ui-plus(?!.*.(css|less|scss|sass|styl)$).*$',
+  '^node:.*$',
 ]
 
 // style
@@ -50,6 +42,8 @@ module.exports = {
     '^@[^/](.*)(css|less|scss|sass)$',
     // 第三方包的样式文件
     '^[^@/.](.*)(css|less|scss|sass)$',
+    // 针对 node 项目中的 src 开头的本地包
+    '^src.*$',
     // 路径别名包 排除 css 文件
     '^@/(?!.*.(css|less|scss|sass|styl)$).*$',
     // 相对路径包
