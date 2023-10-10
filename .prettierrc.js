@@ -1,12 +1,23 @@
+// vue 相关的生态应该单独分为一组
+/**
+ * import * from 'vue'
+ * 
+ * import * from 'vue-router'
+ * import pinia from 'pinia'
+ * 
+ * import lodash from 'lodash'
+*/
+
 const likeBuiltInModules = [
-  '^vue$',
-  '^vue-router$',
-  '^vuex$',
-  '^pinia$',
-  '^react$',
-  '^react-dom$',
-  '^react-router-dom$',
+  // node 模块一定至于最前面
   '^node:.*$',
+  '^vue$',
+  // '^vue-router$',
+  // '^vuex$',
+  // '^pinia$',
+  '^react$',
+  // '^react-dom$',
+  // '^react-router-dom$',
 ]
 
 // style
