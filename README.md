@@ -4,4 +4,9 @@ prettier config for myself
 pnpm install prettier @trivago/prettier-plugin-sort-imports -D
 ```
 
-Create `.prettierrc.js`
+Create `.prettierrc.cjs`
+
+```js
+const config = require('@koalan/prettier-config')
+module.exports = config
+```
