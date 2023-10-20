@@ -62,6 +62,7 @@ module.exports = {
     ...cssList,
   ],
   importOrderSeparation: true,
+  importOrderSortSpecifiers: true,
   overrides: [
     {
       files: ['**/*.(css|less|scss|sass|styl)', '**/*.html'],
