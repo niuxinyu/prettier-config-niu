@@ -1,12 +1,12 @@
 // vue 相关的生态应该单独分为一组
 /**
  * import * from 'vue'
- * 
+ *
  * import * from 'vue-router'
  * import pinia from 'pinia'
- * 
+ *
  * import lodash from 'lodash'
-*/
+ */
 
 const likeBuiltInModules = [
   // node 模块一定至于最前面
@@ -55,14 +55,16 @@ module.exports = {
     '^[^@/.](.*)(css|less|scss|sass)$',
     // 针对 node 项目中的 src 开头的本地包
     '^src.*$',
-    // 路径别名包 排除 css 文件
-    '^@/(?!.*.(css|less|scss|sass|styl)$).*$',
     // 相对路径包
     '^[./](?!.*.(css|less|scss|sass|styl)$).*$',
+    // 路径别名包 排除 css 文件
+    '^@/(?!.*.(css|less|scss|sass|styl)$).*$',
     ...cssList,
   ],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
+  // 区分大小写
+  importOrderCaseInsensitive: true,
   overrides: [
     {
       files: ['**/*.(css|less|scss|sass|styl)', '**/*.html'],

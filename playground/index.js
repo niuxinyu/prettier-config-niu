@@ -1,29 +1,20 @@
-import {
-  computed,
-  defineComponent,
-  nextTick,
-  onActivated,
-  onMounted,
-  reactive,
-  ref,
-  toRefs,
-} from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 
-import { ElMessage, ElMessageBox } from 'element-plus'
-import { useRoute, useRouter } from 'vue-router'
-import { useStore } from 'vuex'
+import html2canvas from 'html2canvas'
+import { NAutoComplete, NButton, NInput, useDialog, useMessage } from 'naive-ui'
+import { storeToRefs } from 'pinia'
+import { useRoute } from 'vue-router'
 
-import { getMoreDictListApi } from '@/api/common'
-import { getYearListApi } from '@/api/homeOperate/modelManage'
-import {
-  deleteTestPaperApi,
-  getPaperApproveListApi,
-} from '@/api/questionBank/paperReview'
-import { paperStatusList, paperTypes } from '@/assets/js/common'
-import { IGlobalState } from '@/store'
-import { handleHeight, throttle } from '@/utils'
-import { IMapList } from '@/views/homeOperate/NEMTActivity/typing'
+import HeaderComponent from './components/Header/index.vue'
+import Introduce from './components/introduce/Introduce.vue'
+import { useChat } from './hooks/useChat'
+import { useScroll } from './hooks/useScroll'
+import { useUsingContext } from './hooks/useUsingContext'
 
-import delPaper from '../components/delPaper.vue'
-import RemoveModal from './removeRepeatQuestion.vue'
-import SetTagModal from './setTagModal.vue'
+import { fetchChatAPIProcess, fetchChatTitle } from '@/api'
+import { HoverButton, SvgIcon } from '@/components/common'
+import Message from '@/components/Message/index.vue'
+import { useBasicLayout } from '@/hooks/useBasicLayout'
+import { useI18n } from '@/locales'
+import { useChatStore, usePromptStore, useUserStore } from '@/store'
+import { isDev, isNull } from '@/utils/is'
