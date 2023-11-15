@@ -1,10 +1,9 @@
 <script setup>
 import { computed, h, ref } from 'vue'
 
-import { useRouter } from 'vue-router'
-
-import { createPinia } from 'pinia'
 import { NButton, NLayout, NLayoutContent, NLayoutSider, NMenu } from 'naive-ui'
+import { createPinia } from 'pinia'
+import { useRouter } from 'vue-router'
 
 import { SvgIcon } from '@/components/common'
 
@@ -76,6 +75,9 @@ const handleGoBackChat = () => {
 const menuDefaultValueRef = computed(() => {
   return router.currentRoute.value.name
 })
+
+const replacement = '$$$2'
+const replacement1 = '$2'
 </script>
 
 <template>
