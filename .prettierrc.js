@@ -1,3 +1,5 @@
+const { getPackageInfoSync } = require('local-pkg')
+
 // vue 相关的生态应该单独分为一组
 /**
  * import * from 'vue'
@@ -23,8 +25,9 @@ const likeBuiltInModules = [
 // style
 const cssList = ['^[.@](.*)(css|less|scss|sass)$']
 
-module.exports = {
-  plugins: ['@trivago/prettier-plugin-sort-imports'],
+const version = getPackageInfoSync('vue')?.version
+
+const baseConfig = {
   printWidth: 80,
   tabWidth: 2,
   useTabs: false,
@@ -41,6 +44,10 @@ module.exports = {
   htmlWhitespaceSensitivity: 'ignore',
   vueIndentScriptAndStyle: false,
   endOfLine: 'lf',
+}
+
+const importOrderConfig = {
+  plugins: ['@trivago/prettier-plugin-sort-imports'],
   embeddedLanguageFormatting: 'auto',
   importOrder: [
     ...likeBuiltInModules,
@@ -73,3 +80,9 @@ module.exports = {
     },
   ],
 }
+
+module.exports = Object.assign(
+  {},
+  baseConfig,
+  version.startsWith('3') ? importOrderConfig : {},
+)

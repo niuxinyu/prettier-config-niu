@@ -76,8 +76,8 @@ const menuDefaultValueRef = computed(() => {
   return router.currentRoute.value.name
 })
 
-const replacement = '$$$2'
-const replacement1 = '$2'
+const pattern = /<span[^>]*data-w-e-type="formula"[^>]*data-value="([^"]*)"[^>]*>.*?<\/span>/g;
+const replacement = '$$$1$';
 </script>
 
 <template>
