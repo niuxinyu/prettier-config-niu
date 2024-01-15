@@ -1,5 +1,3 @@
-const { getPackageInfoSync } = require('local-pkg')
-
 // vue 相关的生态应该单独分为一组
 /**
  * import * from 'vue'
@@ -25,7 +23,12 @@ const likeBuiltInModules = [
 // style
 const cssList = ['^[.@](.*)(css|less|scss|sass)$']
 
-const version = getPackageInfoSync('vue')?.version
+let vuePkgInfo = {}
+try {
+  vuePkgInfo = require('vue/package.json')
+} catch {
+  //
+}
 
 const baseConfig = {
   printWidth: 80,
@@ -84,5 +87,5 @@ const importOrderConfig = {
 module.exports = Object.assign(
   {},
   baseConfig,
-  version.startsWith('3') ? importOrderConfig : {},
+  vuePkgInfo.version?.startsWith('3') ? importOrderConfig : {},
 )
