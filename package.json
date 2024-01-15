@@ -1,6 +1,6 @@
 {
   "name": "@koalan/prettier-config",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "prettier config",
   "main": "index.js",
   "keywords": [
